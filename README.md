@@ -3,16 +3,15 @@ This is the README.TXT
 
 
 STMPBenchmarkProject is a simple web java application that use:
-1-primefaces5+jsf as fronted
-2-managedbeans
-3-hibernate
-4-mysqlserver
-5-maven
-6-Junit4
-7-Glassfish 4 (but we can run it with other server like Tomcate but Tomcate needs to add in its lib folder all the jars of JSF librairies 
-here is a link http://www.horstmann.com/bigj2/tomcat-jsf.html
-)
-8-Netbeans 7
+    1-primefaces5+jsf as fronted
+    2-managedbeans
+    3-hibernate
+    4-mysqlserver
+    5-maven
+    6-Junit4
+    7-Glassfish 4 (but we can run it with other server like Tomcate but Tomcate needs  all the jars of JSF librairy 
+    here is a link http://www.horstmann.com/bigj2/tomcat-jsf.html)
+    8-Netbeans7
 
 The application is implemented the SMTP JAVAMAIL API and improve the following issues:
 
@@ -66,13 +65,13 @@ testSendEmail is Test class with Junit, throw it we can:
     - measure the impact of the size of the message : the size rendred in the map of sendEmail method : when attached very big file
         the size of the message will be higher
     - evaluate the impact of sending multiple messages on the same SMTP connection : i implemented the method sendEmailRepeatdly for send SMPT message
-     in repeated way and the sendEmail with only one time
+     in a repeated way and the sendEmail with only one time
 
-In order to test the sendEmail, if using gmail , it is better to disable the option for sucured application using this link
+In order to test the sendEmail, if using gmail , it is better to disable the option for secured application using this link
 https://www.google.com/settings/security/lesssecureapps
 
 
-application.properties is a file that contains the persistence configuration for hibernate with mysql driver
+application.properties is a file that containes the persistence configurations for hibernate with mysql driver
 
 log4j.properties for logger issues
 
