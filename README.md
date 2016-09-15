@@ -1,5 +1,6 @@
 # Wexpert
 This is the README.TXT
+The NAME of the project is #SMTPBenchmarkProject
 
 STMPBenchmarkProject is a simple web java application that use:
 1-primefaces5+jsf as fronted
