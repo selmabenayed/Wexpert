@@ -47,7 +47,7 @@ Also we must put all the properties of SMTP server in SMTPproperties table:
 
 The application can send a message with a list of attached Files, the files are staticaly located in ressources/files , we can after add functionnality to attach a file
 
-The script of the data base is in ressource/files under web pages folder called scripte_smtp.sql,the scripte containes
+The script of the data base is in files under web pages folder called scripte_smtp.sql,the scripte containes
 some data, only it needs to update the given mail_user (the email of the user), mail_password(the password of the email and the user) 
 
 The web application works with a full Server like Glassfish that support JSF (Optional functionnality for the task)
