@@ -1,0 +1,577 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+
+      >
+
+    <f:view contentType="text/html">
+        <h:head>
+            <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+            <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/scriptHistory.js" />
+            <h:outputScript library="js" name="PrimeFacesLocales.js"/>
+            <h:outputScript library="js" name="PrimeFacesExtLocalesTimeline.js"/>
+            <h:outputScript library="primefaces" name="jquery/jquery.js" target="head"/>
+
+            <title>
+                <ui:insert name="title">
+                    <h:outputText value="---SMTP Benchmark MagNEWS ---"/>
+                </ui:insert>
+            </title>
+
+            <link rel="icon" type="image/x-icon" href="#{facesContext.externalContext.requestContextPath}/resources/images/favicon.ico"/>
+
+           
+            <style type="text/css">
+                .ui-datatable-data ui-widget-content{
+                    font-size: 13px;
+                }
+                .normalarea {
+                    width: 90%;
+                    height: 80px;
+                    min-height: 80px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    font-size: 12px;
+                    border-radius: 7px;
+                }
+                .fc-button-agendaWeek{
+                    visibility: visible !important;
+                }
+                .fc-button-month{
+                    visibility: visible !important;
+                }
+                .fc-button-agendaDay{
+                    visibility: visible !important;
+                }
+                .ui-selectOneButton-width .ui-state-default{
+                    border: 1px solid #77d5f7;
+                    background: #0078ae url("#{resource['primefaces-start:images/ui-bg_glass_45_0078ae_1x400.png']}") 50% 50% repeat-x;
+                    font-weight: normal;
+                    color: #ffffff;
+                    width: 155px;
+                }
+
+                .noBorders tr, .noBorders td {
+                    border: none !important;
+                }
+                .ui-datatable {
+                    border: 1px solid #C6D6DF;
+                    border-radius: 3px;
+                    background-color: #F3F6F9;
+                    color: #778D9B;
+                    font-family: "ralewaymedium";
+                }
+
+                .ui-widget-content .ui-inputSecret{
+                    background: #ffffff;
+                    -moz-box-shadow: inset 0 2px 2px #8f8f8f;
+                    -webkit-box-shadow: inset 0 2px 2px #8f8f8f;
+                    box-shadow: inset 0 2px 2px #8f8f8f;
+                    //color: #433f38;
+                   // border: 1px solid #327e04;
+                    color: #433f38;
+                    font-size: 1em;
+                    border-radius: 2px;
+                    height: 18px;
+                }
+                .ui-widget-content .ui-inputSecret:hover{
+                    background: #9933ff !important;
+                }
+
+                .ui-selectOneButton-width .ui-state-active {
+                    border: 1px solid #acdd4a;
+                    background: #6eac2c url("#{resource['primefaces-start:images/ui-bg_gloss-wave_50_6eac2c_500x100.png']}") 50% 50% repeat-x;
+
+                    font-weight: normal;
+                    color: #ffffff;
+                    width: 155px;
+                }
+
+                .ui-datatable-center {
+                    text-align:left;
+                }
+                .histTab {
+                    background: #00cc00;
+                }
+                .ui-icon-power:hover{
+                    padding: 0;
+                    border: 0;
+                    background-color: #e33b06;
+                }
+                .ui-widget {
+                    font-size: 60%;
+                }
+                .ui-layout-unit {
+                    padding: 0;
+                }
+
+                .ui-layout-center{
+                    padding-right: 5px;
+                    border: 0;
+                }
+                .thememenu {
+                    overflow: auto;
+                    height:300px;
+                    width:200px;
+                }
+                .ui-panelmenu-header{
+                    border-radius: 0;
+                }
+                .ui-layout-north .ui-layout-unit-content {
+                    overflow:visible;
+                }
+
+                .ui-layout-unit-header {
+                    height: 14px;
+                }
+
+                .menugrayblock{
+                    width: 100%;
+                    background-color: gainsboro;
+                    padding: 0;
+                    margin-top: 5px;
+                    height: 30px;
+                }
+                .ui-wizard-step-title {
+                    float: left;
+                    font-size: 11px;
+                    margin: 0 3px 0 0;
+                    padding: 0.4em;
+                }
+                .ui-dialog .ui-dialog-titlebar{
+                    border: 1px solid rgb(0, 103, 139);
+                    border-radius: 0;
+                }
+                .ui-layout-west{
+                    border: 0;
+                }
+                .fc-event-time, .fc-event-title {
+                    font-family: inherit;
+                    font-weight: 300;
+                    font-size: 8pt;
+                }
+                .fc-event-time{
+                    visibility: hidden;
+                }
+                .fc-button-month{
+                    visibility: hidden;
+                }
+                .fc-button-agendaWeek{
+                    visibility: hidden;
+                }
+                .fc-button-agendaDay{
+                    visibility: hidden;
+                }
+                .ui-dashboard-column {
+                    width:250px;
+                    padding: 5px;
+                }
+                .ui-selectcheckboxmenu-header .ui-chkbox .ui-chkbox-box {
+                    visibility: visible;
+                }
+                .fc-event-time{
+                    visibility: hidden !important;
+                }
+                .ui-panelgrid td,.ui-panelgrid tr{
+                }
+                .ui-button{
+                    //border : 1px solid rgb(0, 103, 139) !important;
+                    margin: 1px;
+                }
+                .ui-panel,.ui-layout-unit .ui-layout-unit-content{
+                    padding: 0 !important;
+                }
+                .ui-carousel .ui-carousel-header {
+                    height: 9px;
+                    margin: 0 1px;
+                    overflow: hidden;
+                    padding: 7px 10px 8px;
+                }
+                .ui-carousel .ui-carousel-footer{
+                    height: 6px;
+                    margin: 0 1px;
+                    overflow: hidden;
+                    padding: 7px 10px 8px;
+                }
+                #div1{
+                    background-color:#080808 !important;
+                }
+                .logoColumn{
+                    max-width: 180px;max-height: 50px
+                }
+                .marqued{
+                    background: url("#{resource['primefaces-start:images/ui-bg_glass_75_79c9ec_1x400.png']}") repeat-x scroll 50% 50% #79C9EC; border: 1px solid #448DAE; color: #026890; font-weight: normal;
+                }
+                .ui-overlaypanel{
+                    padding: 0 !important;
+                }
+                table.notifMenu{
+                    margin: 5px;
+                    padding: 10px;
+                    width: 200px;
+                }
+                #notifItem tr.ui-widget-content:hover{
+                    padding: 0;
+                    cursor: pointer;
+                    background: #F3F3F3 !important;
+                    border-bottom: 1px solid #ddd;
+                }
+                #userDiv tr{
+                    border: 1px solid #FFF;
+                }
+                #userDiv tr:hover{
+                    background: rgb(203, 224, 255);
+                    border: 1px solid #a6c9e2;
+                    cursor: pointer;
+                }
+                tr.active{
+                    background: rgb(33, 141, 187);
+                    color: #FFF;
+                }
+
+
+
+
+                .checkBox td {
+                    color: orange;
+                }
+
+                .highlightTableRouge {
+                    background-color: #d14 !important;
+                    background-image: none !important;
+                    color: black !important;
+                }
+                .highlightTableRowJaune {
+                    background-color: #EAAB00 !important;
+                    background-image: none !important;
+                    color: black !important;
+                }
+
+                .highlightTableRowOrange {
+                    background-color: #EAAB00 !important;
+                    background-image: none !important;
+                    color: yellow !important;
+                }
+
+                .highlightTableRowVert {
+                    background-color: #62c462 !important;
+                    background-image: none !important;
+                    color: black !important;
+                }
+
+                .highlightQuantiteManquante {
+                    color: #fff;
+                    background: #6666ff;
+                    font-weight: bold;
+                    border-radius: 9px;
+                    padding: 2px;
+                }
+
+                .checkBoxFerie td {
+                    color: red;
+                }
+                .mystyle.ui-datatable .ui-datatable-header{
+                    background: #0078ae url("#{resource['primefaces-start:images/ui-bg_gloss-wave_50_6eac2c_500x100.png']}") 50% 50% repeat-x !important;
+                }
+                .mystyle.ui-datatable .ui-state-default{
+                    background:#6eac2c !important;
+                }
+                .mystyle.ui-datatable .ui-paginator{
+                    background: #0078ae url("#{resource['primefaces-start:images/ui-bg_gloss-wave_50_6eac2c_500x100.png']}") 50% 50% repeat-x !important;
+                }
+                .ui-datatable.mystyle th {
+                    background: #EAAB00;
+                    font-family: verdana;
+                    font-size: 1em;
+                }
+                .highlight {
+                    background: yellow !important ;
+                }
+                .highlights {
+                    background:red !important ;
+                }
+                .bg_h4 {
+                    background-color: #E5E5E5;
+                    padding: 5px 1px;
+                    color: #000;
+                    height: 20px;
+                    border: 1px solid #CCC;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .ui-menubar .ui-menuitem-link {
+                    padding: 0.4em 0.3em;
+                    line-height: 50px;
+                    font-size: 11px;
+                    overflow: hidden;
+                    text-align: center;
+                    font-family: Verdana;
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-align: center;
+
+                }
+                .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
+                    list-style: none;
+                    position: relative;
+                    margin: 0 .2em 1px 0;
+                    padding: 0;
+                    display: block;
+                    border-bottom: 0;
+                    top: 1px;
+                    min-width: 6.8%;
+                    font-family: Tahoma,Geneva,sans-serif;
+                    font-size: 12px;
+                    line-height: 25px; 
+                }
+
+                .ui-state-hover{
+                    color: #e33b06;
+                    background-color: violet;
+                }
+
+                .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+                    text-decoration: none;
+                }
+                .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
+                    text-decoration: none;
+                }
+
+                .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem .ui-icon {
+                    margin-left: 35px;
+                }
+
+                .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a {
+                    float: initial;
+                    text-align: center;
+                    padding: 0.5em 1em;
+                    text-decoration: none;
+                }
+
+                .ui-widget-content a {
+                    font-weight: bold;
+                }
+                .ui-widget-content a:hover {
+                    color: #f97e08;
+                    font-weight: bold;
+                }
+                .header_bloc {
+                    background-color: #171717;
+                    border: 1px solid #171717;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border-radius: 7px;
+                }
+                .panelStyle2{
+                    background: #FFFFFF;
+                    border: 0px; 
+                    padding:0px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center; 
+                    height: 100%;
+
+                }
+                .customTitleBar > .ui-panel-titlebar {
+                    background: #171717;
+                    background-color: #171717;
+                    border: 1px solid #171717;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    border-radius: 7px;
+                    color: #FFF;
+                    font-family: Tahoma,Geneva,sans-serif;
+                    font-size: 12px;
+                    font-weight: normal;
+                    line-height: 25px;
+                    height: 29px;
+                    text-align: center;
+                }
+
+                .bg_h4 > .ui-panel-titlebar {
+                    background: #E5E5E5;
+                    background-color: #E5E5E5;
+                    padding: 5px 1px;
+                    color: #000;
+                    height: 20px;
+                    border: 1px solid #CCC;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .titreGras{
+                    color: #000;
+                    text-decoration: none;
+                    font-weight: bold;
+                    font-size: 12px;
+                }
+                .modalmessage {
+
+                    visibility: hidden;
+                    color: #000;
+                    background-color: #FFF;
+                    font-size: 14px;
+                    text-align: center;
+                    border: 2px solid #000;
+                }
+                .bg_alterne_hard {
+                    background-color: #F4F4F4;
+                    border: 1px solid #CCC;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    overflow: hidden;
+                    height: 25px;
+                    min-height: 25px;
+                    max-height: 25px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .bg_alterne_soft {
+                    background-color: #FFF;
+                    border-top: 1px solid #CCC;
+                    border-bottom: 1px solid #CCC;
+                    overflow: hidden;
+                    height: 25px;
+                    min-height: 25px;
+                    max-height: 25px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .bg_titres {
+                    background: url("../../../resources/images/gradient-bg.png") repeat-x scroll center top transparent;
+                    padding: 5px 1px;
+                    color: #FFF;
+                    height: 20px;
+                    border-right: 1px solid #FFF;
+                    border-left: 1px solid #FFF;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .legende {
+                    font-size: 10px;
+                }
+                .orange {
+                    font-family: Tahoma,Geneva,sans-serif;
+                    font-weight: bold;
+                    color: #F97E08;
+                    font-weight: bold;
+                }
+                .red {
+                    font-weight: bold;
+                    color: #F00;
+                }
+                .bg_alterne_soft_end {
+                    background-color: #FFF;
+                    border-top: 1px solid #CCC;
+                    border-bottom: 1px solid #CCC;
+                    border-right: 1px solid #CCC;
+                    overflow: hidden;
+                    height: 25px;
+                    min-height: 25px;
+                    max-height: 25px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .veryshortinput {
+                    width: 50px;
+                    margin-left: 5px;
+                    margin-right: 5px;
+                    height: 15px;
+                    font-size: 12px;
+                    border-radius: 7px;
+                }
+                .bg_alterne_hard {
+                    background-color: #F4F4F4;
+                    border: 1px solid #CCC;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    overflow: hidden;
+                    height: 25px;
+                    min-height: 25px;
+                    max-height: 25px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                }
+                .bg_alterne_hard {
+                    border: 1px solid #CCC;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    overflow: hidden;
+                    height: 25px;
+                    min-height: 25px;
+                    max-height: 25px;
+                    font-size: 12px;
+                    vertical-align: middle;
+                    text-align: center;
+                    background-color: #F4F4F4;
+                }
+                .btnhelp {
+                    border-radius: 0px;
+                    background-image: url('../../../resources/images/aide-point-interrogation.png')!important;
+                    width: 32px;
+                    height: 32px;
+                    background-position: 0 0 !important; border: 0px;    
+
+                }
+                .iconOnlyButton{
+                    background: transparent !important;
+                    border: none !important;
+                    margin: 0;
+
+                }
+
+            </style>
+
+        </h:head>
+
+        <h:body>        
+
+            <p:layout expandTitle="Open" collapseTitle="close" fullPage="true">
+                <p:layoutUnit id="top1" position="north"   style="background-color: #f0eef1">
+                   
+                    <h:panelGrid columns="1" width="40">
+                        <p:ajaxStatus  style="position: absolute; top: 50px ; right: 50%">
+                            <f:facet name="start">
+                                <p:graphicImage width="40" value="/resources/images/loading2.gif"/>
+                            </f:facet>
+                            <f:facet name="complete">
+                                <h:outputText value=""/>
+                            </f:facet>
+                        </p:ajaxStatus>
+                    </h:panelGrid>
+                </p:layoutUnit>
+                <p:layoutUnit id="bottom" size="25" position="south" style="position: relative;">
+                    <center>
+                        <h:outputLink title="SMTP-MAGNEWS-SELMA-BEN-AYED" target="MagNEWS" value="http://www.magnews.it/">All rigth reserved © 2016</h:outputLink>
+                    </center>
+                    <p:outputLabel style="position:absolute; right:0; bottom:0" value="Version 1.0"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit id="center" position="center">
+                    <p:layout id="centerLayout">
+                        <p:layoutUnit position="north" size="20" style="width: 100%;height: 5%;border: 0;">
+                            <h:form id="formCenter">
+                                <p:growl id="messagesGrowl" autoUpdate="true" life="5000"/>
+                            </h:form>
+                        </p:layoutUnit>
+
+                        <p:layoutUnit position="center" style="width: 100%;height: 100%;border: 0;">
+                            <ui:insert name="body"/>
+                        </p:layoutUnit>
+                    </p:layout>
+                </p:layoutUnit>
+            </p:layout>
+
+            <ui:insert name="dialogbox"/>
+            
+        </h:body>
+    </f:view>
+</html>

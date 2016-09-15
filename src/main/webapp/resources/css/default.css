@@ -1,0 +1,303 @@
+/*
+    Document   : default
+    Created on : 26 oct. 2015, 16:30:26
+    Author     : Chakib Aroua <aroua.chakib@gmail.com>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*.ui-widget, .ui-widget .ui-widget {
+    font-size: 87%;
+}
+.ui-widget  {
+    font-size: 87%;
+}
+.ui-picklist .ui-picklist-list li{
+    text-align: center;
+    margin: 1px;
+    padding: 2px;
+}*/
+
+ui-paginator ui-paginator-top ui-widget-header ui-corner-top {
+
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.ui-datatable .ui-column-filter {
+    font-size: 12px;
+    width: 100%;
+}
+
+.datatable td{
+    white-space: nowrap;
+}
+
+.datatable table {
+    width: auto;
+}
+th{
+    font-size: 12px;
+}
+.ui-widget .ui-widget-content{
+    font-size: 12px;
+}
+.ui-widget .ui-widget{
+    font-size: 12px;
+}
+.ui-dialog .ui-dialog-content{
+    font-size: 12px;
+}
+.ui-widget-content{
+    font-size: 12px;
+}
+.ui-dialog-titlebar{
+    font-size: 12px;
+}
+.ui-growl-title{
+    font-weight: bold;
+    font-size: 12px;
+}
+.ui-growl-message p{
+    font-size: 12px;
+}
+/*img{
+    zoom:50%;
+}*/
+
+/*.ui-panelgrid td,.ui-panelgrid tr{
+    border: 0 none;
+    padding: 1px !important;
+}*/
+
+.ui-selectonemenu-panel .ui-selectonemenu-item{
+    font-size: 12px;
+}
+.ui-datatable-center {
+    text-align:center;
+}
+.ui-datatable .ui-column-filter{
+    font-size: 12px;
+}
+
+.checkBox td {
+    color: orange;
+}
+td {
+    font-size: 12px;
+}
+
+
+th{
+    font-size: 9px;
+}
+.ui-widget .ui-widget-content{
+    font-size: 12px;
+    font-weight: bold;
+}
+.datatable td{
+    font-size: 12px;
+    white-space: nowrap;
+
+}
+
+
+
+.datatable table {
+
+    width: auto;
+
+}
+
+th{
+
+    font-size: 12px;
+    font-weight: bold;
+
+}
+td {
+    font-size: 12px;
+}
+
+.ui-widget .ui-widget-content{
+
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ui-widget .ui-widget{
+
+    font-size: 12px;
+
+}
+
+.ui-dialog .ui-dialog-content{
+
+    font-size: 12px;
+
+}
+
+.ui-widget-content{
+
+    font-size: 12px;
+
+}
+
+.ui-dialog-titlebar{
+
+    font-size: 12px;
+
+}
+
+.ui-growl-title{
+
+    font-weight: bold;
+
+    font-size: 12px;
+
+}
+
+.ui-growl-message p{
+
+    font-size: 12px;
+
+}
+
+/*img{
+
+    zoom:50%;
+
+}*/
+
+
+
+/*.ui-panelgrid td,.ui-panelgrid tr{
+
+    border: 0 none;
+
+    padding: 1px !important;
+
+}*/
+
+
+
+.ui-selectonemenu-panel .ui-selectonemenu-item{
+
+    font-size: 9px;
+
+}
+
+.ui-datatable-center {
+
+    text-align:center;
+
+}
+
+.ui-datatable .ui-column-filter{
+
+    font-size: 12px;
+
+}
+
+
+
+.checkBox td {
+
+    color: orange;
+
+}
+
+.Titre1{
+    text-align: center;
+    background-color: indigo;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px
+}
+
+.Titre2{
+    text-align: center;
+    background-color: cornflowerblue;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px
+}
+
+.Titre3{
+    text-align: center;
+    background-color: violet;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px
+}
+
+.Titre4{
+    text-align: center;
+    background-color: salmon;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px
+}
+
+.Titre5{
+    text-align: center;
+    background-color: mediumslateblue;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px
+}
+
+.Titre6{
+    text-align: center;
+    background-color: red;
+    color: white;
+    width: 100%;
+    font-weight: bold;
+    font-size: 30px
+}
+.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
+    list-style: none;
+    position: relative;
+    margin: 0 .2em 1px 0;
+    padding: 0;
+    display: block;
+    border-bottom: 0;
+    top: 1px;
+    min-width: 8.8%;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    /*width: 160px;*/
+    border-radius: 6px;
+}
+
+.ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
+    list-style: none;
+    position: relative;
+    margin: 0 .2em 1px 0;
+    padding: 0;
+    display: block;
+    border-bottom: 0;
+    top: 1px;
+    min-width: 8.8%;
+    font-family: Tahoma,Geneva,sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    /*width: 160px;*/
+    border-radius: 6px;
+}
+
+.redRow{
+    background: tomato;
+}
+.greenRow{
+    background: turquoise;
+}
+.ui-selectcheckboxmenu-header .ui-chkbox .ui-chkbox-box {
+    visibility: hidden;
+}

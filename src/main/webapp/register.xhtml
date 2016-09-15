@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"               
+                template="/template/Templateregister.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns="http://www.w3.org/1999/xhtml"
+
+                >
+
+
+    <ui:define name="body">
+
+        <center>
+            <h:panelGrid columns="1" cellpadding="2" cellspacing="2" style="margin-bottom:10px"> 
+                <p:outputLabel value="SMTP Account registration"/>
+            </h:panelGrid>
+            <p:spacer height="50"/>
+
+            <h:form>
+
+                <h:panelGrid id="panelcreate" columns="2" cellpadding="2" cellspacing="2" style="margin-bottom:10px">
+
+                    <p:outputLabel value="First Name : " for="prenom"/>
+                    <p:inputText id="prenom" title="Prénom" style="width: 192px" value="#{registerManagedBean.connectedUser.firstName}" required="true" requiredMessage="First Name is a required field !" >
+
+                    </p:inputText>
+
+                    <p:outputLabel value="Last Name : " for="nom"/>
+                    <p:inputText id="nom" title="Nom" style="width: 192px" value="#{registerManagedBean.connectedUser.lastName}" required="true" 
+                                 requiredMessage="Last Name is a required field !" >                         
+
+                    </p:inputText>
+
+
+
+                    <p:outputLabel value="Email : " for="email"/>
+                    <p:inputTextarea id="email" style="width: 192px" value="#{registerManagedBean.connectedUser.email}" 
+                                     required="true" requiredMessage="Email is a required field !" >
+
+                        <f:validateRegex pattern="([^.@]+)(\.[^.@]+)*@([^.@]+\.)+([^.@]+)"/>
+                        <h:message for="email" style="color:red" />
+                    </p:inputTextarea>
+
+
+                    <p:outputLabel value="User name : " for="login"/>
+                    <p:inputText id="login" style="width: 192px" value="#{registerManagedBean.connectedUser.userName}" 
+                                 required="true" requiredMessage="User name is required!" maxlength="50" label="Login"/>
+
+                    <p:outputLabel value="Mot de passe : " for="motPasse"/>
+                    <p:password id="motPasse" style="width: 192px" value="#{registerManagedBean.connectedUser.password}" 
+                                required="true" requiredMessage="Password is required!" maxlength="45" label="MotPasse" redisplay="true" feedback="true" promptLabel="Enter paswword" weakLabel="weak" goodLabel="middel" strongLabel="Strong"/>
+
+                    <center>
+                        <p:commandButton update="@form" id="valider" value="Create User" actionListener="#{registerManagedBean.createUser()}"/>
+                        <h:outputLink style="text-align: right; margin-right: 10px;" value="#{request.contextPath}/login.xhtml">
+                            <h:outputText value="Login"/>
+                        </h:outputLink>
+                    </center>
+                </h:panelGrid>
+
+
+            </h:form> 
+        </center>
+    </ui:define>
+
+
+    <ui:define  name="dialogbox">
+
+    </ui:define>
+
+
+</ui:composition>

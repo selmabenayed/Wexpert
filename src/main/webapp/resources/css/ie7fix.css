@@ -1,0 +1,24 @@
+/* 
+    Document   : ie7fix
+    Created on : 21 nov. 2013, 11:30:28
+    Author     : Raouda
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+#container_push_home
+{
+	height: 140px;
+}
+.titre_content
+{
+	padding-top:1px;
+}
+#detail_content td
+{
+	font-size:1px;
+}
+#detail_content td.bloc_activite, #detail_content td.bloc_carriere
+{
+	font-size:11px;
+}

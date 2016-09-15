@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"               
+                template="/template/TemplateSMTP.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:pe="http://primefaces.org/ui/extensions"
+                xmlns="http://www.w3.org/1999/xhtml"
+                >
+
+
+    <ui:define name="body">
+        <center>
+            <h:form> 
+                <p:panelGrid columns="2" >
+                    <p:outputLabel value="Recievers" />
+                    <p:inputTextarea value="#{sMTPMessageManagedBean.reciever}" autoResize="true" style="width: 200px; height: 20px;" />
+                    <p:outputLabel value="Object" />
+                    <p:inputText style="width: 200px; height: 10px;" value="#{sMTPMessageManagedBean.object}" />
+                </p:panelGrid>
+                <p:inputTextarea id="editor" widgetVar="editorWidget" value="#{sMTPMessageManagedBean.text}" style="width: 600px;height: 100px" />
+
+
+                <h:panelGrid columns="3" style="margin-top: 10px">
+                    <p:commandButton value="Send" update=":timeSizeDialogID" actionListener="#{sMTPMessageManagedBean.sendMessage}" icon="ui-icon-disk" />
+                    <p:commandButton value="Send Repeatedly" update=":timeSizeDialogIDR" actionListener="#{sMTPMessageManagedBean.sendMessageR}" icon="ui-icon-disk" />
+                    <p:commandButton value="Clear" type="button" onclick="PF('editorWidget').clear();" icon="ui-icon-close" />
+                </h:panelGrid>
+            </h:form> 
+        </center>
+    </ui:define>
+
+
+    <ui:define  name="dialogbox">
+        <p:dialog closeOnEscape="true"  widgetVar="timeSizeDialog" id="timeSizeDialogID"
+                  header="Size and Elapsed Time"  draggable="true" resizable="false" >
+            <p:panel header="With SMTP sedding message one time" >
+                <p:panelGrid columns="2" >
+                    <p:outputLabel value="Size" /> 
+                    <p:outputLabel value="#{sMTPMessageManagedBean.size} B" /> 
+                    <p:outputLabel value="Elapsed Time" /> 
+                    <p:outputLabel value="#{sMTPMessageManagedBean.elapsedTime} Ms" /> 
+                </p:panelGrid>
+            </p:panel>
+          
+        </p:dialog>
+         <p:dialog closeOnEscape="true"  widgetVar="timeSizeDialogR" id="timeSizeDialogIDR"
+                  header="Size and Elapsed Time"  draggable="true" resizable="false" >
+           
+            <p:panel header="With SMTP repeatedly sedding message" >
+                <p:panelGrid columns="2"   >
+                    <p:outputLabel value="Size R" /> 
+                    <p:outputLabel value="#{sMTPMessageManagedBean.sizeR} B" /> 
+                    <p:outputLabel value="Elapsed Time R" /> 
+                    <p:outputLabel value="#{sMTPMessageManagedBean.elapsedTimeR} Ms" /> 
+
+                </p:panelGrid>
+            </p:panel>
+        </p:dialog>
+    </ui:define>
+
+
+</ui:composition>
